@@ -1,0 +1,71 @@
+marked.setOptions({
+  breaks:true
+})
+
+const ProjectMarkdown =
+`# This is a Markdown Previewer:
+
+## A freecodecamp project
+### Code by [Mamun](https://freecodecamp.com/thetradecoder)
+
+Inline Code:
+
+\`let x =5; let y= 6; let result = x+y;\`
+
+Code Block:
+
+\`\`\`
+let x=5;
+let y=6; 
+let result=x+y;
+\`\`\`
+
+blockquote:
+
+>Go on with this awsome [freecodecamp](https://learn.freecodecamp.com) learning module
+
+List Items:
+
+* Front End
+* Data Science
+* Back End
+
+![fcc logo](https://upload.wikimedia.org/wikipedia/commons/3/39/FreeCodeCamp_logo.png)
+
+**Happy Coding...**
+`
+
+class ShowMarkdown extends React.Component{
+  constructor(props){
+    super(props)
+    this.state={
+      defaultMarkdown:ProjectMarkdown
+    }
+    this.handleChange=this.handleChange.bind(this)
+  }
+  handleChange(e){
+    this.setState({
+      defaultMarkdown:e.target.value
+    })
+  }
+  render(){
+    return(
+    <div>
+        <div id='pad'>
+          <textarea
+            id='editor'
+            value={this.state.defaultMarkdown}
+            onChange ={this.handleChange}
+            cols={100}
+            rows={20}/>
+          </div>
+        <div id='preview' dangerouslySetInnerHTML={{__html:marked(this.state.defaultMarkdown)}}/>
+    </div>
+    )
+    
+  }
+  
+};
+
+ReactDOM.render(<ShowMarkdown/>, document.getElementById('markdownPreview'));
+ 

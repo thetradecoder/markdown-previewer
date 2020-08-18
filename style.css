@@ -1,0 +1,26 @@
+:root {
+  background-color: silver;
+}
+#editor {
+  color: blue;
+  padding: 10px;
+}
+#preview {
+  color: silver;
+  background-color: black;
+  padding: 10px;
+}
+img {
+  width: 200px;
+}
+#markdownPreview {
+  display: flex;
+}
+a {
+  color: red;
+}
+code {
+  color: teal;
+  font-family: monospace;
+  font-size: 1.2em;
+}
